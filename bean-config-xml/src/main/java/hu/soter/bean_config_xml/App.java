@@ -7,7 +7,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
 	public static void main(String[] args) {
 		try (ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")) {
-			System.out.println(context.getBean(Customer.class));
+			System.out.println(context.getBean("customer", Customer.class));
+			System.out.println(context.getBean("hashCustomer", Customer.class));
 		}
 	}
 }

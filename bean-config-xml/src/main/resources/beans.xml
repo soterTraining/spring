@@ -6,7 +6,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <context:component-scan base-package="hu.soter.bean_config_xml" />
-    <bean class="hu.soter.bean_config_xml.Customer">
+    
+    <bean id="customer" class="hu.soter.bean_config_xml.Customer" />
+    
+    <bean id="hashCustomer" class="hu.soter.bean_config_xml.Customer">
+         <property name="formatter">
+            <bean class="hu.soter.bean_config_xml.HashmarkNameFormatter"></bean>
+        </property>
     </bean>
     
 </beans>
