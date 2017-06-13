@@ -6,5 +6,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
+    <bean id="development-course" class="hu.soter.spring_second.DevelopementCourse">
+        <property name="courseId" value="001" />
+        <property name="courseName" value="Java Training" />
+    </bean>
     
+    
+    <bean id="drawing-course" class="hu.soter.spring_second.DrawingCourse">
+        <property name="courseId" value="002" />
+        <property name="courseName" value="Right hemisphere drawing" />
+    </bean>
+
+        
 </beans>

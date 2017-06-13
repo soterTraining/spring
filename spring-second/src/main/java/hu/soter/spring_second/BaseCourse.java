@@ -7,6 +7,7 @@ public abstract class BaseCourse implements Course {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
+	
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
