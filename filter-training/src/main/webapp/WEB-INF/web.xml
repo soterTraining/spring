@@ -2,6 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
@@ -10,15 +11,15 @@
     <servlet-class>hu.soter.servlet.HelloServlet</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/sayhello</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
     <servlet-name>ErrorServlet</servlet-name>
     <servlet-class>hu.soter.servlet.ErrorServlet</servlet-class>
   </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/sayhello</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>ErrorServlet</servlet-name>

@@ -2,10 +2,6 @@ package teach.beandef;
 
 import java.util.List;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-
 public class MailBox {
 
     private List<Envelope> envelopes;

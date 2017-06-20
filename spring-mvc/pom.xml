@@ -4,17 +4,17 @@
 	<groupId>hu.soter</groupId>
 	<artifactId>spring-mvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<packaging>war</packaging>
-	
+
 	<name>spring-mvc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.2.7.RELEASE</spring.version>
-    </properties>	
-    
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.2.7.RELEASE</spring.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -61,7 +61,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>spring-mvc</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -1,10 +1,7 @@
 package hu.soter.filter;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.Filter;
@@ -14,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 	
 public class MyFilter implements Filter {
 
@@ -43,7 +39,6 @@ public class MyFilter implements Filter {
 			final String[] value = entry.getValue();
 			
 			paramArray[counter++] = String.format("%s : %s", key, Arrays.toString(value));
-			//sb.append(String.format("%s : %s,", key, Arrays.toString(value)));
 		}
 		
 		return Arrays.toString(paramArray);
