@@ -20,6 +20,7 @@ public class HelloServlet extends HttpServlet {
 			
 			getServletContext().getRequestDispatcher("/error").forward(requestWrapper, resp);
 			
+			//resp.sendRedirect("error");
 			return;
 		} 
 		
