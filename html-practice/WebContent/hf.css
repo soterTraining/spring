@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: orange;
+}
+
+.green {
+    background-color: green;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+
+.white{
+    background-color: white;
+}
+
+.placeholder {
+    position: fixed;
+    top: 92px;
+    left: 92px;
+    background-color: transparent;
+}
+
+.moved {
+    position: relative;
+    top: 200px;
+    left: 80px;
+}
