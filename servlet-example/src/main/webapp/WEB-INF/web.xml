@@ -5,6 +5,12 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
+  <context-param>
+  	<param-name>myEmail</param-name>
+  	<param-value>joe.soter.trainer@gmail.com</param-value>
+  </context-param>
+  
+  
   <servlet>
   	<servlet-name>elso-servlet</servlet-name>
   	<servlet-class>hu.soter.servlet.MyServlet</servlet-class>
