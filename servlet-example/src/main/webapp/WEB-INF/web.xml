@@ -3,21 +3,77 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <context-param>
-  	<param-name>myEmail</param-name>
-  	<param-value>joe.soter.trainer@gmail.com</param-value>
-  </context-param>
-  
-  
-  <servlet>
-  	<servlet-name>elso-servlet</servlet-name>
-  	<servlet-class>hu.soter.servlet.MyServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>elso-servlet</servlet-name>
-  	<url-pattern>/elsoservlet</url-pattern>
-  </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!--Az itt deklarált kulcs - érték párokat elérhetjük a szervleteken belül-->
+	<!--A getServletContext.getInitParameter(<kulcs>) utasítással tudjuk lekérni a <kulcs> - hoz tartozó értéket -->
+	<!-- Ebben a konkrét esetben ha a joe.soter.trainer@gmail.com-ot szeretnénk visszakapni akkor ezt a -->
+	<!--getServletContext.getInitParameter("myEmail") utasítással tehetjük meg -->
+	<context-param>
+		<param-name>myEmail</param-name>
+		<param-value>joe.soter.trainer@gmail.com</param-value>
+	</context-param>
+
+	<!-- Itt jelezzük az alkalmazás szervernek, hogy a MyServlet osztályunk egy servlet, amit -->
+	<!-- majd neki fog kelleni példányosítani, és hogy itt a web.xml-ben későbbiekben elso-servlet -->
+	<!-- néven fogunk rá hivatkozni -->
+	<servlet>
+		<servlet-name>elso-servlet</servlet-name>
+		<servlet-class>hu.soter.servlet.MyServlet</servlet-class>
+	</servlet>
+
+	<!-- A FormProcessor is egy servlet lesz, a további két sor (display-name, és description) nem kötelező -->
+	<!-- Léteznek a webalkalmazás tartalmát megjelenítő eszközök, ezek szokták megjeleníteni ezeket a sorokat.	 -->
+	<servlet>
+		<servlet-name>FormProcessor</servlet-name>
+		<display-name>FormProcessor</display-name>
+		<description></description>
+		<servlet-class>hu.soter.servlet.FormProcessor</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>NextPage</servlet-name>
+		<display-name>NextPage</display-name>
+		<description></description>
+		<servlet-class>hu.soter.servlet.NextPage</servlet-class>
+	</servlet>
+
+	<!-- Itt közöljük azt az alkalmazás szerverrel, hogy a korábban elso-servlet néven deklarált -->
+	<!-- servletünket az /elsoservlet url-en szeretnénk elérhetővé tenni. A teljes url ebben az esetben -->
+	<!-- ugy fog kinézni, hogy  -->
+	<!-- <protokol>://<host>:<port>/<contextPath>/<servletPath> -->
+	<!-- azaz -->
+	<!-- http://localhost:8080/servlet-example/elsoservlet -->
+	<servlet-mapping>
+		<servlet-name>elso-servlet</servlet-name>
+		<url-pattern>/elsoservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>FormProcessor</servlet-name>
+		<url-pattern>/processform</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>NextPage</servlet-name>
+		<url-pattern>/nextpage</url-pattern>
+	</servlet-mapping>
+
+	<!-- Itt azokat a fileokat soroljuk fel, amiket landing page-nek szánunk, azaz ha beírjuk a webalkalmazás -->
+	<!-- címét (http://localhost:8080/servlet-example) akkor autómatikusan átirányít minket a server ezek közül -->
+	<!-- az oldalak közül az első elérhetőre. Azaz, ha a register.html nem létezik, akkor az ezt követő oldalt -->
+	<!-- fogja megpróbálni betölteni, és így tovább, amig talál egy létezőt. -->
+	<welcome-file-list>
+		<welcome-file>
+			register.html
+		</welcome-file>
+	</welcome-file-list>
+
+	<!-- Itt pedig azt mondjuk meg a szervernek, hogy melyik címre irányítson át, ha valami hiba történne -->
+	<!-- valamelyik java osztályunkban. Ebben az esetben bármilyen nem kezelt kivétel a /error.html oldalra -->
+	<!-- fog navigálni. Ez nem szükségszerűen kell .html oldalnak lennie, lehet egy másik servlet címe is. -->
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error.html</location>
+	</error-page>
 </web-app>
