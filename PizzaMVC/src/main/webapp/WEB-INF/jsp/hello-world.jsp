@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	WellHello world.
+	WellHello ${jspname}.
 </body>
 </html>
